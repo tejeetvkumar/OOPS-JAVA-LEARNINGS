@@ -8,6 +8,7 @@ A collection of Java programs covering core Object-Oriented Programming (OOP) co
 |------|----------------------|
 | `first.java` | Basic Java program — Hello World |
 | `second.java` | Constructor overloading (default + parameterized) |
+| `Constructor.java` | Constructor chaining with inheritance (`Parent` → `Child`) |
 | `ShapeTest.java` | Method overriding — `Shape` base class with `Circle` and `Rectangle` subclasses |
 | `Main.java` | Interface implementation — `Payment` with `UPIPayment` and `CreditCardPayment` |
 
