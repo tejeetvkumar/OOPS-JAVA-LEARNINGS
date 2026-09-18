@@ -1,41 +1,47 @@
 # OOPS JAVA LEARNINGS
 
-A collection of Java programs covering core Object-Oriented Programming (OOP) concepts — classes, constructors, inheritance, polymorphism, interfaces, exception handling, multithreading, and practical mini-projects.
+A collection of Java programs covering core Object-Oriented Programming (OOP) concepts — classes, constructors, inheritance, polymorphism, interfaces, exception handling, multithreading, collections, and practical mini-projects.
 
 ## Repository Structure
 
 ```
 JAVA-LEARNINGS/
 ├── README.md
+├── .gitignore                          Ignores compiled .class files
 ├── 01-Basics/
-│   ├── first.java              Hello World program
-│   └── second.java             Constructor overloading demo
+│   ├── first.java                      Hello World program
+│   └── second.java                     Constructor overloading demo
 ├── 02-Shapes/
-│   └── ShapeTest.java          Inheritance + Polymorphism with Shape/Circle/Rectangle
+│   └── ShapeTest.java                  Inheritance + Polymorphism with Shape/Circle/Rectangle
 ├── 03-Interfaces/
-│   └── RentableTest.java       Interface implementation (Rentable → Car, Bike)
+│   └── RentableTest.java               Interface implementation (Rentable → Car, Bike)
 ├── 04-Payments/
-│   └── Main.java               Payment interface with UPIPayment / CreditCardPayment
+│   └── Main.java                       Payment interface with UPIPayment / CreditCardPayment
 ├── 05-Exception-Handling/
 │   ├── BuiltInExceptions/
 │   │   └── PredefinedExceptions.java   try-catch with Scanner, division by zero
 │   └── CustomExceptions/
-│       └── AgeValidation.java             Custom InvalidAgeException
+│       └── AgeValidation.java          Custom InvalidAgeException
 ├── 06-ATM/
-│   └── ATMTest.java            ATM withdrawal with InsufficientBalanceException
+│   └── ATMTest.java                    ATM withdrawal with InsufficientBalanceException
 ├── 07-Multithreading/
 │   ├── Runnable/
-│   │   ├── Ticket.java         Implements Runnable for ticket booking
-│   │   └── BookTicket.java     [BROKEN] Duplicate class name — see Practice
+│   │   └── Ticket.java                 Implements Runnable for ticket booking
 │   └── Synchronization/
-│       ├── TicketBooking.java  Runnable class with synchronized booking
-│       └── TicketCounter.java  Main class that starts threads
+│       ├── TicketBooking.java          Runnable class with synchronized booking
+│       ├── TicketCounter.java          Main class that starts threads
+│       └── Interthread.java            Interthread communication (wait/notify)
 ├── 08-Library/
-│   ├── Book.java               Book class with encapsulation (getters/setters)
-│   ├── BookDemo.java           Demo using Book class
-│   ├── LibraryTest.java        Test Book class functionality
-│   └── LibraryTest-old.java    [DUPLICATE] Identical to LibraryTest.java
-└── 09-Practice/
+│   ├── Book.java                       Book class with encapsulation (getters/setters)
+│   ├── BookDemo.java                   Demo using Book class
+│   └── LibraryTest.java                Test Book class functionality
+├── 09-Practice/
+│   ├── BookTicket.java                 Duplicate of Ticket.java — synchronized ticket booking
+│   └── LibraryTestOld.java             Uses Book class from 08-Library
+└── 10-Collection framework/
+    ├── ArrayList1.java                 List/ArrayList operations (marks)
+    ├── ShoppingCart.java               List/ArrayList operations (cart)
+    └── CourseAnalysis.java             Set/HashSet operations (student IDs)
 ```
 
 ## Concepts Covered
@@ -49,6 +55,8 @@ JAVA-LEARNINGS/
 - **Built-in Exceptions** — `try-catch` with `Scanner`, arithmetic exceptions
 - **Custom Exceptions** — creating and throwing user-defined exception classes
 - **Multithreading** — `Runnable` interface, `Thread`, `synchronized` methods
+- **Interthread Communication** — `wait()`, `notify()`, and `synchronized` for producer/consumer scenarios
+- **Collection Framework** — `List`, `ArrayList`, `Set`, `HashSet`, iterators
 - **Mini-Projects** — Payment system, ATM, Library management
 
 ## Prerequisites
@@ -76,13 +84,14 @@ java -cp 08-Library LibraryTest
 
 | File | Issue |
 |------|-------|
-| `07-Multithreading/Runnable/BookTicket.java` | Contains two classes both named `TicketCounter` — will not compile. Duplicate of `Ticket.java`. |
-| `08-Library/LibraryTest-old.java` | Exact duplicate of `LibraryTest.java`. Kept for historical purposes. |
-| `07-Multithreading/Synchronization/TicketCounter.java` | Requires `TicketBooking.java` in the same directory to compile. |
+| `09-Practice/BookTicket.java` | Exact duplicate of `07-Multithreading/Runnable/Ticket.java` (both contain a `TicketCounter` Runnable class). Compiles fine on its own but kept as practice reference. |
+| `09-Practice/LibraryTestOld.java` | References the `Book` class from `08-Library/`. Compile with `javac -cp 08-Library 09-Practice/LibraryTestOld.java`. |
+| `10-Collection framework/CourseAnalysis.java` | Untracked — not yet committed to git. |
+| `07-Multithreading/Synchronization/Interthread.java` | Contains an inner `bankaccount` class (lowercase) in the same file — relies on default package access. |
 
 ## Compilation Verification
 
-To verify all files compile (excluding known broken files):
+To verify all files compile (excluding the untracked file):
 
 ```bash
 javac 01-Basics/*.java
@@ -95,6 +104,11 @@ javac 06-ATM/*.java
 javac 07-Multithreading/Runnable/Ticket.java
 javac 07-Multithreading/Synchronization/*.java
 javac 08-Library/*.java
+javac 09-Practice/BookTicket.java
+javac -cp 08-Library 09-Practice/LibraryTestOld.java
+javac "10-Collection framework/ArrayList1.java"
+javac "10-Collection framework/ShoppingCart.java"
+javac "10-Collection framework/CourseAnalysis.java"
 ```
 
 ## Author
